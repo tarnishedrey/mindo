@@ -40,10 +40,18 @@ export function Login() {
   const isDemo = repo.mode === "demo";
 
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(params.get("error") === "campus" ? "Gunakan akun Google kampus (email berakhiran .ac.id)." : "");
+  const [error, setError] = useState("");
+  const flag = params.get("error");
   const [busy, setBusy] = useState(false);
 
   const judge = isDemo ? demoJudge : demoAccount.email ? demoAccount : null;
+
+  useEffect(() => {
+    if (flag === "campus") {
+      setError("Akun itu bukan akun kampus. Masuk dengan akun Google kampus (email berakhiran .ac.id), misalnya nama@student.ub.ac.id.");
+      setBusy(false);
+    }
+  }, [flag]);
 
   useEffect(() => {
     if (!loading && user) router.replace(profile?.quizAnswers ? next : "/onboarding");
