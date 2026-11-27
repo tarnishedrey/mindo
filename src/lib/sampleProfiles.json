@@ -1,0 +1,420 @@
+[
+ {
+  "key": "sample01",
+  "fullName": "Nadia Putri",
+  "university": "Universitas Brawijaya",
+  "city": "Malang",
+  "faculty": "Fakultas Sains Teknologi dan Matematika",
+  "studyProgram": "Sains Data",
+  "year": 1,
+  "bio": "Suka bikin rangkuman berwarna. Lagi berjuang di Kalkulus.",
+  "courses": [
+   "Kalkulus",
+   "Statistika Dasar",
+   "Algoritma dan Pemrograman"
+  ],
+  "availability": [
+   "mon-malam",
+   "wed-malam",
+   "thu-siang",
+   "sat-pagi"
+  ],
+  "quizAnswers": [
+   5,
+   2,
+   5,
+   2,
+   2,
+   5,
+   2,
+   4
+  ]
+ },
+ {
+  "key": "sample02",
+  "fullName": "Bima Saputra",
+  "university": "Universitas Brawijaya",
+  "city": "Malang",
+  "faculty": "Fakultas Ilmu Komputer",
+  "studyProgram": "Teknik Informatika",
+  "year": 2,
+  "bio": "Lebih paham kalau ngebahas soal bareng sambil ngopi.",
+  "courses": [
+   "Struktur Data",
+   "Matematika Diskrit",
+   "Kalkulus"
+  ],
+  "availability": [
+   "tue-malam",
+   "wed-malam",
+   "fri-malam",
+   "sun-siang"
+  ],
+  "quizAnswers": [
+   2,
+   5,
+   1,
+   5,
+   2,
+   5,
+   2,
+   5
+  ]
+ },
+ {
+  "key": "sample03",
+  "fullName": "Salsabila Rahma",
+  "university": "Universitas Brawijaya",
+  "city": "Malang",
+  "faculty": "Fakultas Ekonomi dan Bisnis",
+  "studyProgram": "Akuntansi",
+  "year": 1,
+  "bio": "Pagi hari paling produktif. Cari teman latihan soal Pengantar Akuntansi.",
+  "courses": [
+   "Pengantar Akuntansi",
+   "Matematika Ekonomi",
+   "Statistika Dasar"
+  ],
+  "availability": [
+   "mon-pagi",
+   "tue-pagi",
+   "thu-pagi",
+   "sat-pagi"
+  ],
+  "quizAnswers": [
+   4,
+   3,
+   4,
+   3,
+   5,
+   1,
+   3,
+   4
+  ]
+ },
+ {
+  "key": "sample04",
+  "fullName": "Dimas Arya",
+  "university": "Universitas Brawijaya",
+  "city": "Malang",
+  "faculty": "Fakultas Sains Teknologi dan Matematika",
+  "studyProgram": "Statistika",
+  "year": 2,
+  "bio": "Kerjain sendiri dulu, terus debat jawaban. Itu seru.",
+  "courses": [
+   "Statistika Dasar",
+   "Aljabar Linear",
+   "Kalkulus"
+  ],
+  "availability": [
+   "mon-malam",
+   "wed-malam",
+   "fri-siang"
+  ],
+  "quizAnswers": [
+   3,
+   4,
+   5,
+   1,
+   2,
+   5,
+   3,
+   3
+  ]
+ },
+ {
+  "key": "sample05",
+  "fullName": "Aulia Zahra",
+  "university": "Universitas Negeri Malang",
+  "city": "Malang",
+  "faculty": "Fakultas MIPA",
+  "studyProgram": "Pendidikan Matematika",
+  "year": 1,
+  "bio": "Suka jelasin materi ke orang lain, itu cara aku belajar.",
+  "courses": [
+   "Kalkulus",
+   "Aljabar Linear"
+  ],
+  "availability": [
+   "tue-siang",
+   "thu-siang",
+   "sat-siang",
+   "sun-malam"
+  ],
+  "quizAnswers": [
+   2,
+   5,
+   2,
+   4,
+   4,
+   2,
+   4,
+   2
+  ]
+ },
+ {
+  "key": "sample06",
+  "fullName": "Rizky Pratama",
+  "university": "Universitas Negeri Malang",
+  "city": "Malang",
+  "faculty": "Fakultas Teknik",
+  "studyProgram": "Teknik Elektro",
+  "year": 3,
+  "bio": "Online aja biar fleksibel, yang penting konsisten.",
+  "courses": [
+   "Rangkaian Listrik",
+   "Kalkulus"
+  ],
+  "availability": [
+   "mon-malam",
+   "tue-malam",
+   "wed-malam",
+   "thu-malam"
+  ],
+  "quizAnswers": [
+   4,
+   2,
+   4,
+   2,
+   1,
+   5,
+   5,
+   1
+  ]
+ },
+ {
+  "key": "sample07",
+  "fullName": "Intan Permata",
+  "university": "Poltekkes Kemenkes Malang",
+  "city": "Malang",
+  "faculty": "Jurusan Gizi",
+  "studyProgram": "Gizi",
+  "year": 2,
+  "bio": "Butuh teman belajar Biokimia yang sabar.",
+  "courses": [
+   "Biokimia",
+   "Anatomi Fisiologi"
+  ],
+  "availability": [
+   "sat-pagi",
+   "sat-siang",
+   "sun-pagi"
+  ],
+  "quizAnswers": [
+   5,
+   1,
+   4,
+   2,
+   4,
+   2,
+   3,
+   3
+  ]
+ },
+ {
+  "key": "sample08",
+  "fullName": "Fajar Nugroho",
+  "university": "Universitas Airlangga",
+  "city": "Surabaya",
+  "faculty": "Fakultas Kedokteran",
+  "studyProgram": "Pendidikan Dokter",
+  "year": 2,
+  "bio": "Belajar anatomi lebih nempel kalau saling tanya-jawab.",
+  "courses": [
+   "Anatomi Fisiologi",
+   "Biokimia"
+  ],
+  "availability": [
+   "mon-malam",
+   "thu-malam",
+   "sun-malam"
+  ],
+  "quizAnswers": [
+   2,
+   4,
+   2,
+   5,
+   2,
+   4,
+   2,
+   5
+  ]
+ },
+ {
+  "key": "sample09",
+  "fullName": "Kirana Ayu",
+  "university": "Institut Teknologi Sepuluh Nopember",
+  "city": "Surabaya",
+  "faculty": "Fakultas Teknologi Elektro dan Informatika Cerdas",
+  "studyProgram": "Sistem Informasi",
+  "year": 1,
+  "bio": "Suka suasana perpustakaan, tapi kerja bareng dari awal.",
+  "courses": [
+   "Algoritma dan Pemrograman",
+   "Matematika Diskrit"
+  ],
+  "availability": [
+   "tue-siang",
+   "wed-siang",
+   "fri-siang"
+  ],
+  "quizAnswers": [
+   5,
+   2,
+   2,
+   4,
+   4,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "key": "sample10",
+  "fullName": "Raka Mahendra",
+  "university": "Universitas Indonesia",
+  "city": "Depok",
+  "faculty": "Fakultas Ilmu Komputer",
+  "studyProgram": "Ilmu Komputer",
+  "year": 2,
+  "bio": "Night owl. Ayo grind Struktur Data.",
+  "courses": [
+   "Struktur Data",
+   "Matematika Diskrit",
+   "Aljabar Linear"
+  ],
+  "availability": [
+   "mon-malam",
+   "wed-malam",
+   "fri-malam",
+   "sat-malam"
+  ],
+  "quizAnswers": [
+   3,
+   4,
+   3,
+   4,
+   1,
+   5,
+   4,
+   2
+  ]
+ },
+ {
+  "key": "sample11",
+  "fullName": "Putri Anindya",
+  "university": "Universitas Indonesia",
+  "city": "Depok",
+  "faculty": "Fakultas Ekonomi dan Bisnis",
+  "studyProgram": "Ilmu Ekonomi",
+  "year": 1,
+  "bio": "Lebih suka belajar sendiri lalu tukar catatan.",
+  "courses": [
+   "Matematika Ekonomi",
+   "Pengantar Ekonomi Mikro"
+  ],
+  "availability": [
+   "mon-pagi",
+   "wed-pagi",
+   "fri-pagi"
+  ],
+  "quizAnswers": [
+   5,
+   1,
+   5,
+   1,
+   5,
+   1,
+   2,
+   4
+  ]
+ },
+ {
+  "key": "sample12",
+  "fullName": "Galih Wicaksono",
+  "university": "Institut Teknologi Bandung",
+  "city": "Bandung",
+  "faculty": "Fakultas Matematika dan IPA",
+  "studyProgram": "Matematika",
+  "year": 1,
+  "bio": "Diskusi soal olimpiade dan Kalkulus, kapan aja.",
+  "courses": [
+   "Kalkulus",
+   "Aljabar Linear",
+   "Fisika Dasar"
+  ],
+  "availability": [
+   "tue-malam",
+   "thu-malam",
+   "sat-siang"
+  ],
+  "quizAnswers": [
+   2,
+   5,
+   3,
+   4,
+   2,
+   4,
+   3,
+   4
+  ]
+ },
+ {
+  "key": "sample13",
+  "fullName": "Melati Kusuma",
+  "university": "Universitas Padjadjaran",
+  "city": "Bandung",
+  "faculty": "Fakultas Psikologi",
+  "studyProgram": "Psikologi",
+  "year": 2,
+  "bio": "Belajar tenang, tapi senang ada yang menemani.",
+  "courses": [
+   "Statistika Dasar",
+   "Psikologi Kognitif"
+  ],
+  "availability": [
+   "mon-siang",
+   "wed-siang",
+   "sat-pagi"
+  ],
+  "quizAnswers": [
+   5,
+   2,
+   2,
+   4,
+   4,
+   2,
+   2,
+   5
+  ]
+ },
+ {
+  "key": "sample14",
+  "fullName": "Yusuf Hakim",
+  "university": "Universitas Jember",
+  "city": "Jember",
+  "faculty": "Fakultas Pertanian",
+  "studyProgram": "Agroteknologi",
+  "year": 3,
+  "bio": "Video call juga oke, yang penting saling ingetin.",
+  "courses": [
+   "Statistika Dasar",
+   "Biokimia"
+  ],
+  "availability": [
+   "mon-malam",
+   "tue-malam",
+   "sun-siang"
+  ],
+  "quizAnswers": [
+   3,
+   3,
+   4,
+   2,
+   3,
+   4,
+   5,
+   1
+  ]
+ }
+]

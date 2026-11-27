@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #16213e;
+  --color-muted: #5b6478;
+  --color-faint: #8a92a6;
+  --color-line: #e3e6ee;
+  --color-canvas: #f5f6fa;
+  --color-surface: #ffffff;
+
+  --color-brand: #3b5bdb;
+  --color-brand-strong: #2c46b0;
+  --color-brand-soft: #e8edff;
+
+  --color-accent: #e8a300;
+  --color-accent-soft: #fff4d6;
+  --color-accent-ink: #7a5400;
+
+  --color-ok: #12805c;
+  --color-ok-soft: #e3f5ee;
+  --color-danger: #c2410c;
+  --color-danger-soft: #fdebe3;
+
+  --radius-card: 1.25rem;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 0.25s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
