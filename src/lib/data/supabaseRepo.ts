@@ -1,4 +1,4 @@
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient, type User } from "@supabase/supabase-js";
 import type { AuthUser, Connection, Message, Profile, StudySession } from "../types";
 import { RepoError, type ProfileInput, type Repo } from "./repo";
 
@@ -60,6 +60,12 @@ const toMessage = (r: MessageRow): Message => ({
   createdAt: r.created_at,
 });
 
+const toUser = (u: User): AuthUser => ({
+  id: u.id,
+  email: u.email ?? "",
+  name: String(u.user_metadata?.full_name ?? u.user_metadata?.name ?? ""),
+});
+
 function fail(error: { message: string } | null, friendly: string): asserts error is null {
   if (error) throw new RepoError(`${friendly} (${error.message})`);
 }
@@ -82,13 +88,13 @@ export class SupabaseRepo implements Repo {
   async getUser(): Promise<AuthUser | null> {
     const { data } = await this.sb.auth.getSession();
     const u = data.session?.user;
-    return u ? { id: u.id, email: u.email ?? "" } : null;
+    return u ? toUser(u) : null;
   }
 
   onAuthChange(cb: (user: AuthUser | null) => void) {
     const { data } = this.sb.auth.onAuthStateChange((_e, session) => {
       const u = session?.user;
-      cb(u ? { id: u.id, email: u.email ?? "" } : null);
+      cb(u ? toUser(u) : null);
     });
     return () => data.subscription.unsubscribe();
   }
@@ -106,6 +112,17 @@ export class SupabaseRepo implements Repo {
   async signIn(email: string, password: string) {
     const { error } = await this.sb.auth.signInWithPassword({ email, password });
     if (error) throw new RepoError("Email atau kata sandi salah, atau email belum dikonfirmasi.");
+  }
+
+  async signInGoogle(next: string) {
+    const { error } = await this.sb.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/login?next=${encodeURIComponent(next)}`,
+        queryParams: { prompt: "select_account" },
+      },
+    });
+    if (error) throw new RepoError("Login Google gagal. Coba lagi.");
   }
 
   async signOut() {

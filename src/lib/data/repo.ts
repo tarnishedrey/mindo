@@ -9,6 +9,7 @@ export interface Repo {
   onAuthChange(cb: (user: AuthUser | null) => void): () => void;
   signUp(email: string, password: string): Promise<{ needsConfirm: boolean }>;
   signIn(email: string, password: string): Promise<void>;
+  signInGoogle(next: string): Promise<void>;
   signOut(): Promise<void>;
 
   getMe(): Promise<Profile | null>;

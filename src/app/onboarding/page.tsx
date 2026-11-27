@@ -68,6 +68,8 @@ function Onboarding() {
       const { id: _id, createdAt: _c, isSample: _s, ...rest } = profile;
       setForm(rest);
       if (profile.quizAnswers) setAnswers(profile.quizAnswers);
+    } else if (user.name) {
+      setForm((f) => ({ ...f, fullName: user.name }));
     }
     if (editStep && order.includes(editStep)) setStep(editStep);
     setHydrated(true);
