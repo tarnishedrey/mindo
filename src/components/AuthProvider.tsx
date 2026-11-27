@@ -22,9 +22,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const refreshProfile = useCallback(async () => {
-    const p = await getRepo().getMe();
-    setProfile(p);
-    return p;
+    try {
+      const p = await getRepo().getMe();
+      setProfile(p);
+      return p;
+    } catch {
+      return null;
+    }
   }, []);
 
   const router = useRouter();
@@ -42,12 +46,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return;
       }
       setUser(u);
-      setProfile(u ? await repo.getMe() : null);
+      try {
+        setProfile(u ? await repo.getMe() : null);
+      } catch (e) {
+        console.error("Profil gagal dimuat", e);
+        setProfile(null);
+      }
     };
 
     (async () => {
-      await apply(await repo.getUser());
-      if (alive) setLoading(false);
+      try {
+        await apply(await repo.getUser());
+      } catch (e) {
+        console.error("Sesi gagal dimuat", e);
+      } finally {
+        if (alive) setLoading(false);
+      }
     })();
     const off = repo.onAuthChange((u) => void apply(u));
     return () => {
