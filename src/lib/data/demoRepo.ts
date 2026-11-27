@@ -98,7 +98,7 @@ export class DemoRepo implements Repo {
   async getUser() {
     const s = this.load();
     const u = s.users.find((x) => x.id === s.sessionUserId);
-    return u ? { id: u.id, email: u.email } : null;
+    return u ? { id: u.id, email: u.email, name: "" } : null;
   }
 
   onAuthChange(cb: (u: AuthUser | null) => void) {
@@ -116,7 +116,7 @@ export class DemoRepo implements Repo {
     s.users.push(user);
     s.sessionUserId = user.id;
     this.save(s);
-    this.emitAuth({ id: user.id, email: e });
+    this.emitAuth({ id: user.id, email: e, name: "" });
     return { needsConfirm: false };
   }
 
@@ -127,7 +127,11 @@ export class DemoRepo implements Repo {
     if (!user) throw new RepoError("Email atau kata sandi salah.");
     s.sessionUserId = user.id;
     this.save(s);
-    this.emitAuth({ id: user.id, email: e });
+    this.emitAuth({ id: user.id, email: e, name: "" });
+  }
+
+  async signInGoogle() {
+    throw new RepoError("Login Google tidak tersedia di mode demo.");
   }
 
   async signOut() {

@@ -42,4 +42,4 @@ export type Message = {
   createdAt: string;
 };
 
-export type AuthUser = { id: string; email: string };
+export type AuthUser = { id: string; email: string; name: string };

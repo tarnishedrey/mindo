@@ -4,7 +4,7 @@ Web app mobile untuk menemukan teman belajar yang cara belajarnya cocok. Dibuat 
 
 **Alur inti**
 
-1. Daftar dengan email kampus (`.ac.id`).
+1. Masuk dengan akun Google kampus (email `.ac.id`). Akun Google pribadi otomatis ditolak.
 2. Isi profil (kampus, kota, prodi, mata kuliah), lalu pilih waktu luang.
 3. Isi kuis 8 pertanyaan untuk mendapatkan *study personality*.
 4. Lihat rekomendasi teman belajar yang diurutkan berdasarkan skor kecocokan. Jangkauan bisa dipilih: Kampusku, Kotaku, atau Semua kampus.
@@ -76,7 +76,22 @@ Empat dimensinya: suasana (tenang ↔ diskusi), cara kerja (mandiri dulu ↔ bar
 
    ⚠️ **service_role key melewati semua aturan keamanan.** Pakai hanya di terminal laptopmu. Jangan taruh di `.env.local`, Vercel, GitHub, atau chat.
 
-**Catatan email konfirmasi:** layanan email bawaan Supabase hanya bisa mengirim beberapa email per jam. Untuk uji coba dengan banyak mahasiswa, pasang SMTP sendiri di **Authentication → Emails** (misalnya Resend atau Brevo, keduanya punya paket gratis).
+## Mengaktifkan login Google
+
+1. Buka [Google Cloud Console](https://console.cloud.google.com/), lalu buat project baru (misalnya `mindo`).
+2. Buka **APIs & Services → OAuth consent screen**:
+   - pilih **External**;
+   - isi nama aplikasi `Mindo` dan email kontak;
+   - simpan, lalu klik **Publish app**. Kalau masih dalam mode *Testing*, hanya akun yang didaftarkan sebagai test user yang bisa login.
+3. Buka **APIs & Services → Credentials → Create Credentials → OAuth client ID**:
+   - **Application type:** Web application.
+   - **Authorized redirect URIs:** `https://<project-ref>.supabase.co/auth/v1/callback`.
+4. Salin **Client ID** dan **Client secret**. Di Supabase, buka **Authentication → Sign In / Providers → Google**, nyalakan, lalu tempel keduanya.
+5. Di Supabase, buka **Authentication → URL Configuration**:
+   - **Site URL:** isi dengan alamat web kalian.
+   - **Redirect URLs:** tambahkan `http://localhost:3000/**` dan `https://<domain-vercel>/**`.
+
+Batasan `.ac.id` dicek di dua tempat: aplikasi langsung mengeluarkan akun non-kampus, dan aturan database (RLS) menolak profil tanpa email `.ac.id`. Sebagian kampus membatasi akun Google mahasiswanya agar tidak bisa login ke aplikasi luar, jadi uji dulu dengan akun kampusmu sendiri.
 
 ## Deploy ke Vercel
 
@@ -89,7 +104,7 @@ Kalau variabel Supabase dikosongkan, hasil deploy berjalan dalam mode demo. Mode
 
 ## Akun demo untuk juri
 
-Di halaman Masuk ada tombol **"Coba pakai akun demo juri"**. Tombol ini masuk ke `juri@demo.mindo.test` memakai sandi dari `NEXT_PUBLIC_DEMO_PASSWORD`. Domain `demo.mindo.test` diizinkan khusus untuk akun ini dan akun mahasiswa contoh.
+Di halaman depan ada tombol **"Masuk sebagai juri (akun demo)"**, karena juri tidak punya akun kampus `.ac.id`. Tombol ini masuk ke `juri@demo.mindo.test` memakai sandi dari `NEXT_PUBLIC_DEMO_PASSWORD`. Domain `demo.mindo.test` diizinkan khusus untuk akun ini dan akun mahasiswa contoh.
 
 ## Kejujuran data
 

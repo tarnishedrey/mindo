@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import { isCampus } from "@/lib/campus";
 import { getRepo } from "@/lib/data";
 import type { AuthUser, Profile } from "@/lib/types";
 import { Spinner } from "./ui";
@@ -26,25 +27,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return p;
   }, []);
 
+  const router = useRouter();
+
   useEffect(() => {
     const repo = getRepo();
     let alive = true;
-    (async () => {
-      const u = await repo.getUser();
-      if (!alive) return;
+
+    const apply = async (u: AuthUser | null) => {
+      if (u && !isCampus(u.email)) {
+        await repo.signOut();
+        setUser(null);
+        setProfile(null);
+        router.replace("/login?error=campus");
+        return;
+      }
       setUser(u);
       setProfile(u ? await repo.getMe() : null);
+    };
+
+    (async () => {
+      await apply(await repo.getUser());
       if (alive) setLoading(false);
     })();
-    const off = repo.onAuthChange(async (u) => {
-      setUser(u);
-      setProfile(u ? await repo.getMe() : null);
-    });
+    const off = repo.onAuthChange((u) => void apply(u));
     return () => {
       alive = false;
       off();
     };
-  }, []);
+  }, [router]);
 
   return <AuthContext.Provider value={{ user, profile, loading, refreshProfile }}>{children}</AuthContext.Provider>;
 }
